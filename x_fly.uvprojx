@@ -16,7 +16,7 @@
         <TargetCommonOption>
           <Device>STM32F407VGTx</Device>
           <Vendor>STMicroelectronics</Vendor>
-          <PackID>Keil.STM32F4xx_DFP.2.10.0</PackID>
+          <PackID>Keil.STM32F4xx_DFP.2.11.0</PackID>
           <PackURL>http://www.keil.com/pack</PackURL>
           <Cpu>IRAM(0x20000000,0x20000) IRAM2(0x10000000,0x10000) IROM(0x08000000,0x100000) CPUTYPE("Cortex-M4") FPU2 CLOCK(12000000) ELITTLE</Cpu>
           <FlashUtilSpec></FlashUtilSpec>
@@ -336,7 +336,7 @@
               <MiscControls>--C99</MiscControls>
               <Define>STM32F40_41xxx,USE_STDPERIPH_DRIVER</Define>
               <Undefine></Undefine>
-              <IncludePath>.\Libraries\STM32F4xx_StdPeriph_Driver\inc;.\Libraries\CMSIS;.\User;.\Libraries\STM32F4xx_StdPeriph_Driver\src;.\BSP;.\APP</IncludePath>
+              <IncludePath>.\BSP;.\User;.\APP;.\Libraries\STM32F4xx_StdPeriph_Driver\inc;.\Libraries\CMSIS;.\Libraries\STM32F4xx_StdPeriph_Driver\src</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -632,14 +632,14 @@
           <GroupName>Bsp</GroupName>
           <Files>
             <File>
-              <FileName>led.c</FileName>
+              <FileName>gpio.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\BSP\led.c</FilePath>
+              <FilePath>.\BSP\gpio.c</FilePath>
             </File>
             <File>
-              <FileName>led.h</FileName>
+              <FileName>gpio.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\BSP\led.h</FilePath>
+              <FilePath>.\BSP\gpio.h</FilePath>
             </File>
           </Files>
         </Group>

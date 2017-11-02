@@ -5,14 +5,15 @@
 #include "stm32f4xx.h" 
 
 /*******************************************LED Config**************************************/
-#define LED_RED_PIN		GPIO_Pin_3
-#define LED_GREEN_PIN	GPIO_Pin_4
+#define LED1_PIN		GPIO_Pin_3
+#define LED2_PIN		GPIO_Pin_4
 
 #define LED_GPIO		GPIOE
+
 #define LED_RCC			RCC_AHB1Periph_GPIOE
 
 /*******************************************************************************************/
-void LED_Init(void);
+void LED_BspInit(void);
 
 #endif
 

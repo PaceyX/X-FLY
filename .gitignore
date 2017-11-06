@@ -1,5 +1,13 @@
 Listings/*
 Objects/*
 
-*.uvguix.*
+x_fly.uvoptx
+x_fly.uvguix.Pacey
+x_fly.uvguix.peixu
+JLinkSettings.ini
+JLinkLog.txt
+EventRecorderStub.scvd
 
+
+
+*.uvguix.*

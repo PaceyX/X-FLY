@@ -46,12 +46,32 @@
 /******************************************************************************/
 
 /**
-  * @brief  This function handles NMI exception.
+  * @brief   This function handles NMI exception.
   * @param  None
   * @retval None
   */
 void NMI_Handler(void)
 {
+  /* This interrupt is generated when HSE clock fails */
+
+  if (RCC_GetITStatus(RCC_IT_CSS) != RESET)
+  {
+    /* At this stage: HSE, PLL are disabled (but no change on PLL config) and HSI
+       is selected as system clock source */
+
+    /* Enable HSE */
+    RCC_HSEConfig(RCC_HSE_ON);
+
+    /* Enable HSE Ready and PLL Ready interrupts */
+    RCC_ITConfig(RCC_IT_HSERDY | RCC_IT_PLLRDY, ENABLE);
+
+    /* Clear Clock Security System interrupt pending bit */
+    RCC_ClearITPendingBit(RCC_IT_CSS);
+
+    /* Once HSE clock recovers, the HSERDY interrupt is generated and in the RCC ISR
+       routine the system clock will be reconfigured to its previous state (before
+       HSE clock failure) */
+  }
 }
 
 /**
@@ -140,6 +160,40 @@ void PendSV_Handler(void)
   */
 void SysTick_Handler(void)
 {
+}
+
+/**
+  * @brief  This function handles RCC interrupt request. 
+  * @param  None
+  * @retval None
+  */
+void RCC_IRQHandler(void)
+{
+  if(RCC_GetITStatus(RCC_IT_HSERDY) != RESET)
+  { 
+    /* Clear HSERDY interrupt pending bit */
+    RCC_ClearITPendingBit(RCC_IT_HSERDY);
+
+    /* Check if the HSE clock is still available */
+    if (RCC_GetFlagStatus(RCC_FLAG_HSERDY) != RESET)
+    { 
+      /* Enable PLL: once the PLL is ready the PLLRDY interrupt is generated */ 
+      RCC_PLLCmd(ENABLE);     
+    }
+  }
+
+  if(RCC_GetITStatus(RCC_IT_PLLRDY) != RESET)
+  { 
+    /* Clear PLLRDY interrupt pending bit */
+    RCC_ClearITPendingBit(RCC_IT_PLLRDY);
+
+    /* Check if the PLL is still locked */
+    if (RCC_GetFlagStatus(RCC_FLAG_PLLRDY) != RESET)
+    { 
+      /* Select PLL as system clock source */
+      RCC_SYSCLKConfig(RCC_SYSCLKSource_PLLCLK);
+    }
+  }
 }
 
 /******************************************************************************/

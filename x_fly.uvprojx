@@ -7,7 +7,7 @@
 
   <Targets>
     <Target>
-      <TargetName>x_fly v1.0</TargetName>
+      <TargetName>x_fly</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <pCCUsed>5060528::V5.06 update 5 (build 528)::ARMCC</pCCUsed>
@@ -652,6 +652,16 @@
               <FileName>gpio.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\BSP\gpio.h</FilePath>
+            </File>
+            <File>
+              <FileName>rcc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\BSP\rcc.c</FilePath>
+            </File>
+            <File>
+              <FileName>rcc.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\BSP\rcc.h</FilePath>
             </File>
           </Files>
         </Group>

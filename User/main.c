@@ -8,7 +8,6 @@
 /* Private macro -------------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
 static __IO uint32_t uwTimingDelay;
-RCC_ClocksTypeDef RCC_Clocks;
 
 
 
@@ -21,14 +20,14 @@ RCC_ClocksTypeDef RCC_Clocks;
   */
 int main(void)
 {
+	Rcc_Config();
+	LED_BspInit();
 
-  
-     
-  /* Infinite loop */
-  while (1)
-  {
-	  Led_Task();
-  }
+	/* Infinite loop */
+	while (1)
+	{
+		Led_Task();
+	}
 }
 
 

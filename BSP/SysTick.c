@@ -12,7 +12,7 @@ static __IO uint32_t Timedelay;
 *******************************************************************************/
 
 
-void SysTick_Init(void)
+void Bsp_SysTick_Init(void)
 {
 	/* Enable the SysTick interrupt per 1ms. */
 	SysTick_Config(SystemCoreClock / 1000);		//168000000 / 1000 = 168000 * (1/168M) = 1ms
@@ -45,7 +45,10 @@ static void STD_IncTick(void)
 void TimingDelay_Decrement(void)
 {
 	STD_IncTick();
-	if(Timedelay != 0) Timedelay = 0;
+	if(Timedelay != 0) 
+	{
+		Timedelay--;
+	}
 }
 
 /** 

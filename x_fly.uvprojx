@@ -403,12 +403,12 @@
             <File>
               <FileName>sys_flag.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\sys_flag.c</FilePath>
+              <FilePath>.\APP\sys_flag.c</FilePath>
             </File>
             <File>
               <FileName>sys_flag.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\sys_flag.h</FilePath>
+              <FilePath>.\APP\sys_flag.h</FilePath>
             </File>
           </Files>
         </Group>

@@ -3,7 +3,7 @@
 
 
 
-void LED_BspInit(void)
+void Bsp_GPIO_Init(void)
 {
 	GPIO_InitTypeDef  GPIO_InitStructure;
 	
@@ -13,8 +13,10 @@ void LED_BspInit(void)
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_100MHz;
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;					//普通输出
 	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;					//普通推挽输出
-	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_NOPULL;  
+	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_DOWN;  
 	GPIO_Init(LED_GPIO, &GPIO_InitStructure);
 
+	GPIO_SetBits(LED_GPIO, LED1_PIN);		
+ 	GPIO_SetBits(LED_GPIO, LED2_PIN);	
 }
 

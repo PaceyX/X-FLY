@@ -20,8 +20,9 @@ static __IO uint32_t uwTimingDelay;
 int main(void)
 {
 	Rcc_Config();
-	LED_BspInit();
-
+	Bsp_GPIO_Init();
+	Bsp_SysTick_Init();
+	
 	/* Infinite loop */
 	while (1)
 	{

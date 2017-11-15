@@ -14,7 +14,7 @@
 #define LED_RCC			RCC_AHB1Periph_GPIOE
 
 /*******************************************************************************************/
-void LED_BspInit(void);
+void Bsp_GPIO_Init(void);
 
 #endif
 

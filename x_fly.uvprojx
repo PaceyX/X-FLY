@@ -400,6 +400,16 @@
               <FileType>5</FileType>
               <FilePath>.\APP\led.h</FilePath>
             </File>
+            <File>
+              <FileName>sys_flag.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\sys_flag.c</FilePath>
+            </File>
+            <File>
+              <FileName>sys_flag.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\sys_flag.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -662,6 +672,16 @@
               <FileName>rcc.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\BSP\rcc.h</FilePath>
+            </File>
+            <File>
+              <FileName>SysTick.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\BSP\SysTick.c</FilePath>
+            </File>
+            <File>
+              <FileName>SysTick.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\BSP\SysTick.h</FilePath>
             </File>
           </Files>
         </Group>

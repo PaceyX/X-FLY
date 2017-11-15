@@ -29,6 +29,7 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f4xx_it.h"
+#include "includes.h"
 
 /** @addtogroup Template_Project
   * @{
@@ -44,6 +45,17 @@
 /******************************************************************************/
 /*            Cortex-M4 Processor Exceptions Handlers                         */
 /******************************************************************************/
+
+
+/**
+  * @brief  This function handles SysTick Handler.
+  * @param  None
+  * @retval None
+  */
+void SysTick_Handler(void)
+{
+	TimingDelay_Decrement();
+}
 
 /**
   * @brief   This function handles NMI exception.
@@ -150,15 +162,6 @@ void DebugMon_Handler(void)
   * @retval None
   */
 void PendSV_Handler(void)
-{
-}
-
-/**
-  * @brief  This function handles SysTick Handler.
-  * @param  None
-  * @retval None
-  */
-void SysTick_Handler(void)
 {
 }
 

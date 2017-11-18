@@ -688,6 +688,16 @@
               <FileType>5</FileType>
               <FilePath>.\BSP\SysTick.h</FilePath>
             </File>
+            <File>
+              <FileName>usart.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\BSP\usart.c</FilePath>
+            </File>
+            <File>
+              <FileName>usart.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\BSP\usart.h</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>

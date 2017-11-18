@@ -410,6 +410,11 @@
               <FileType>5</FileType>
               <FilePath>.\APP\sys_flag.h</FilePath>
             </File>
+            <File>
+              <FileName>global.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\APP\global.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

@@ -17,11 +17,11 @@
 							else	\
 								GPIO_ResetBits(LED_GPIO,LED2_PIN)
 								
-
+#define LED_Toggle()
 
 
 void Led_Task(void);
-
+void Led_Toggle(void);
 
 
 

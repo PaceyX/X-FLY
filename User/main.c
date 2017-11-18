@@ -22,10 +22,12 @@ int main(void)
 	Rcc_Config();
 	Bsp_GPIO_Init();
 	Bsp_SysTick_Init();
+	RunFlagInit();
 	
 	/* Infinite loop */
 	while (1)
 	{
+		RunFlagHandleTask();
 		Led_Task();
 	}
 }

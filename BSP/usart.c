@@ -1,5 +1,7 @@
 #include "usart.h"
 
+uint8_t USART1_aTxBuffer[USART1_BUFFERSIZE] = "sssssssssssssssssssss";
+uint8_t USART1_aRxBuffer[USART1_BUFFERSIZE];
 
 /**
 *	@brief	Config usart1 peripheral.
@@ -20,7 +22,7 @@ void USART1_Init(void)
 	RCC_APB2PeriphClockCmd(RCC_APB2Periph_USART1, ENABLE);
 
 	/* Enable the DMA clock */
-	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_DMA1, ENABLE);
+	RCC_AHB1PeriphClockCmd(USART1_DMAx_CLK, ENABLE);
 
 	/* USARTx GPIO configuration -----------------------------------------------*/ 
 	/* Connect USART pins to AF7 */
@@ -85,17 +87,23 @@ void USART1_Init(void)
 	DMA_InitStructure.DMA_PeripheralInc = DMA_PeripheralInc_Disable;
 	DMA_InitStructure.DMA_Priority = DMA_Priority_High;
 	/* Configure TX DMA */
-	DMA_InitStructure.DMA_Channel = DMA_Channel_4 ;
+	DMA_InitStructure.DMA_Channel = USART1_TX_DMA_CHANNEL ;
 	DMA_InitStructure.DMA_DIR = DMA_DIR_MemoryToPeripheral ;
 	DMA_InitStructure.DMA_Memory0BaseAddr =(uint32_t)USART1_aTxBuffer ;
-	DMA_Init(DMA1_Stream0,&DMA_InitStructure);
+	DMA_Init(USART1_TX_DMA_STREAM,&DMA_InitStructure);
 	/* Configure RX DMA */
-	DMA_InitStructure.DMA_Channel = DMA_Channel_4 ;
+	DMA_InitStructure.DMA_Channel = USART1_RX_DMA_CHANNEL ;
 	DMA_InitStructure.DMA_DIR = DMA_DIR_PeripheralToMemory ;
 	DMA_InitStructure.DMA_Memory0BaseAddr =(uint32_t)USART1_aRxBuffer ; 
-	DMA_Init(DMA1_Stream1,&DMA_InitStructure);
+	DMA_Init(USART1_RX_DMA_STREAM,&DMA_InitStructure);
 	 
 	/* Enable USART */
 	USART_Cmd(USART1, ENABLE);
+	
+	/* Enable DMA USART TX Stream */
+	DMA_Cmd(USART1_TX_DMA_STREAM,ENABLE);
+	
+	/* Enable USART DMA TX Requsts */
+	USART_DMACmd(USART1, USART_DMAReq_Tx, ENABLE);
 }
 
